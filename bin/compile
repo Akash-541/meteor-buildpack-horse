@@ -118,6 +118,29 @@ function METEOR {
 # than the "latest" that is installed by install.meteor.com.
 cd "$APP_SOURCE_DIR"
 
+
+echo "-----> Setting up QuotaGuard Tunnel"
+
+# Create qgtunnel bin directory
+QGTUNNEL_DIR="$APP_SOURCE_DIR/.qgtunnel-bin"
+mkdir -p "$QGTUNNEL_DIR"
+
+# Download and extract the qgtunnel binary
+curl -sL https://s3.amazonaws.com/quotaguard/qgtunnel-latest.tar.gz | tar -xz -C "$QGTUNNEL_DIR"
+chmod +x "$QGTUNNEL_DIR/qgtunnel"
+
+# Read settings.json and extract vars (assuming structure: { "quotaguard": { "url": "..." } })
+QGTUNNEL_URL=$(cat settings.json | grep -o '"url": *"[^"]*"' | sed 's/.*"url": *"\([^"]*\)"/\1/')
+
+# Write .qgtunnel config file
+cat > "$APP_SOURCE_DIR/.qgtunnel" <<EOF
+[qgtunnel.postgres] 
+accept ="${QG_ACCEPT_URL}" 
+connect = "${QG_CONNECT_URL}" 
+auth = "${QG_AUTH}" 
+proxy = "${QG_PROXY}"
+EOF
+
 echo "-----> Target Meteor version: `METEOR --version`"
 
 # Deal with non-server build targets.  Determine if we have --server-only flag
