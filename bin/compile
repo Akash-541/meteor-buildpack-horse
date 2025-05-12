@@ -127,10 +127,10 @@ mkdir -p "$QGTUNNEL_DIR"
 
 # Download and extract the qgtunnel binary
 curl -sL https://s3.amazonaws.com/quotaguard/qgtunnel-latest.tar.gz | tar -xz -C "$QGTUNNEL_DIR"
-chmod +x "$QGTUNNEL_DIR/qgtunnel"
+mv "$QGTUNNEL_DIR/bin/qgtunnel" "$QGTUNNEL_DIR/qgtunnel"
 
-# Read settings.json and extract vars (assuming structure: { "quotaguard": { "url": "..." } })
-QGTUNNEL_URL=$(cat settings.json | grep -o '"url": *"[^"]*"' | sed 's/.*"url": *"\([^"]*\)"/\1/')
+# Set permissions
+chmod +x "$QGTUNNEL_DIR/qgtunnel"
 
 # Write .qgtunnel config file
 cat > "$APP_SOURCE_DIR/.qgtunnel" <<EOF
