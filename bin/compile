@@ -138,7 +138,7 @@ cat > "$APP_SOURCE_DIR/.qgtunnel" <<EOF
 accept ="${QG_ACCEPT_URL}" 
 connect = "${QG_CONNECT_URL}" 
 auth = "${QG_AUTH}" 
-proxy = "${QG_PROXY}"
+proxy = "${QG_PROXY_URL}"
 EOF
 
 echo "-----> Target Meteor version: `METEOR --version`"
