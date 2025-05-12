@@ -119,7 +119,7 @@ function METEOR {
 cd "$APP_SOURCE_DIR"
 
 
-echo "-----> Setting up QuotaGuard Tunnel"
+echo "-----> Setting up QuotaGuard Tunnel, ${QG_AUTH}"
 
 # Create qgtunnel bin directory
 QGTUNNEL_DIR="$APP_SOURCE_DIR/.qgtunnel-bin"
@@ -127,7 +127,7 @@ mkdir -p "$QGTUNNEL_DIR"
 
 # Download and extract the qgtunnel binary
 curl -sL https://s3.amazonaws.com/quotaguard/qgtunnel-latest.tar.gz | tar -xz -C "$QGTUNNEL_DIR"
-mv "$QGTUNNEL_DIR/bin/qgtunnel" "$QGTUNNEL_DIR/qgtunnel"
+cp "$QGTUNNEL_DIR/bin/qgtunnel" "$QGTUNNEL_DIR/qgtunnel"
 
 # Set permissions
 chmod +x "$QGTUNNEL_DIR/qgtunnel"
