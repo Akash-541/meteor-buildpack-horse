@@ -2,5 +2,5 @@
 
 cat <<EOF
 default_process_types:
-  web: bash -c ".meteor/heroku_build/bin/node \$NODEJS_PARAMS .meteor/heroku_build/app/main.js"
+  web: bash -c "./start-tunnel.sh && .meteor/heroku_build/bin/node \$NODEJS_PARAMS .meteor/heroku_build/app/main.js"
 EOF
