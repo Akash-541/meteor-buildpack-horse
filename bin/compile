@@ -143,14 +143,14 @@ proxy = "${QG_PROXY_URL}"
 [qgtunnel.postgres_midnight] 
 accept ="${QG_ACCEPT_URL_MIDNIGHT}" 
 connect = "${QG_CONNECT_URL_MIDNIGHT}" 
-auth = "${QG_AUTH_MIDNIGHT}" 
-proxy = "${QG_PROXY_URL_MIDNIGHT}"
+auth = "${QG_AUTH}" 
+proxy = "${QG_PROXY_URL}"
 
 [qgtunnel.postgres_link_review] 
 accept ="${QG_ACCEPT_URL_LINK_REVIEW}" 
 connect = "${QG_CONNECT_URL_LINK_REVIEW}" 
-auth = "${QG_AUTH_LINK_REVIEW}" 
-proxy = "${QG_PROXY_URL_LINK_REVIEW}"
+auth = "${QG_AUTH}" 
+proxy = "${QG_PROXY_URL}"
 EOF
 
 echo "-----> Target Meteor version: `METEOR --version`"
