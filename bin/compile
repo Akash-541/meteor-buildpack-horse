@@ -153,6 +153,13 @@ auth = "${QG_AUTH}"
 proxy = "${QG_PROXY_URL}"
 EOF
 
+[qgtunnel.postgres_link_review] 
+accept ="${QG_ACCEPT_URL_CRAWLFLEET}" 
+connect = "${QG_CONNECT_URL_CRAWLFLEET}" 
+auth = "${QG_AUTH}" 
+proxy = "${QG_PROXY_URL}"
+EOF
+
 echo "-----> Target Meteor version: `METEOR --version`"
 
 # Deal with non-server build targets.  Determine if we have --server-only flag
