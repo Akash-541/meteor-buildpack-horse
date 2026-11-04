@@ -151,7 +151,6 @@ accept ="${QG_ACCEPT_URL_LINK_REVIEW}"
 connect = "${QG_CONNECT_URL_LINK_REVIEW}" 
 auth = "${QG_AUTH}" 
 proxy = "${QG_PROXY_URL}"
-EOF
 
 [qgtunnel.postgres_crawlfleet] 
 accept ="${QG_ACCEPT_URL_CRAWLFLEET}" 
